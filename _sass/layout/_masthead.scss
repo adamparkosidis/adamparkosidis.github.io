@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .masthead {
+  // display: none;  I added this line to remove the abr at the top of the website
   position: fixed;
   background: var(--global-bg-color);
   height: fit-content;
