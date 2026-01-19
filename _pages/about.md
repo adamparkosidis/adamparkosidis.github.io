@@ -80,12 +80,12 @@ First-author papers
   </div>
 {% endfor %}
 
-</div>
+</div> 
 
 ## Talks & Events
 {: #talks-events}
 
-<div>
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1rem 0;">
 {% for post in site.talks reversed %}
   {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
   {% if year != previous_year %}
@@ -93,7 +93,7 @@ First-author papers
     <h3>{{ year }}</h3>
     {% assign previous_year = year %}
   {% endif %}
-  <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--global-bg-color); border: 1px solid var(--global-border-color); border-radius: 4px;">
+  <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--global-bg-color); border: 1px solid var(--global-border-color); border-radius: 1px;">
     <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
       {% if post.paperurl %}
         <a href="{{ post.paperurl }}" style="color: var(--global-link-color); text-decoration: none;">{{ post.title }}</a>
@@ -101,21 +101,17 @@ First-author papers
         {{ post.title }}
       {% endif %}
     </div>
-    {% if post.citation %}
-      <div style="font-size: 0.9rem; font-style: italic; color: var(--text-color-muted, #666);">{{ post.citation }}</div>
-    {% else %}
       {% if post.venue %}
-        <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);"><i>{{ post.venue }}</i></div>
+        <div style="font-size: 1.0rem; color: var(--text-color-muted, #666);"><i>{{ post.venue }}</i></div>
       {% endif %}
-    {% endif %}
     {% if post.location %}
       <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);">{{ post.location }}</div>
     {% endif %}
     {% if post.date %}
       <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);"><strong>Date:</strong> {{ post.date | date: "%B %d, %Y" }}</div>
     {% endif %}
-    {% if post.excerpt %}
-      <p style="margin-top: 0.5rem; font-size: 0.95rem;">{{ post.excerpt }}</p>
+    {% if post.talk_type %}
+      <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);">{{ post.talk_type }}</div>
     {% endif %}
   </div>
 {% endfor %}
