@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Adam Parkosidis"
 title_separator          : "-"
 name                     : &name "Adam Parkosidis"
-description              : &description "Astrophysicist at UvA"
+description              : &description "PhD Astrophysics | Binary Star Evolution | Mass Transfer | Anton Pannekoek Institute | University of Amsterdam"
 url                      : https://adamparkosidis.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "adamparkosidis/adamparkosidis.github.io"
@@ -83,7 +83,7 @@ author:
   name             : "Adam Parkosidis"
   avatar           : "Adam_Parkosidis.jpg"
   bio              : "PhD candidate at University of Amsterdam"
-  location         : "Amsterdam (The Netherlands)"
+  location         : "Amsterdam (NL)"
   employer         : 
   pubmed           :
   googlescholar    :
