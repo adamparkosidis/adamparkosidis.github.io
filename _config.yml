@@ -81,10 +81,10 @@ analytics:
 # Site Author
 author:
   name             : "Adam Parkosidis"
-  avatar           : "adam_parkosidis.jpg"
-  bio              : "PhD candidate"
-  location         : "Amsterdam NL"
-  employer         : "University of Amsterdam"
+  avatar           : "Adam_Parkosidis.jpg"
+  bio              : "PhD candidate at University of Amsterdam"
+  location         : "Amsterdam (The Netherlands)"
+  employer         : 
   pubmed           :
   googlescholar    :
   email            : "a.parkosidis@uva.nl"
