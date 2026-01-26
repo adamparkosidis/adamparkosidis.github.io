@@ -15,7 +15,7 @@ header:
 <h2>
 Hello there! 
 
-I'm a PhD candidate in computational and theoretical astrophysics at the University of Amsterdam.
+I'm a PhD candidate in astrophysics at the University of Amsterdam.
 </h2>
 
 
