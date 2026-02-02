@@ -19,10 +19,9 @@ I'm a PhD candidate in astrophysics at the University of Amsterdam.
 </h2>
 
 
-In September 2023, I started my PhD at the [Anton Pannekoek Institute](https://api.uva.nl) for Astronomy at the University of Amsterdam, where I work with Dr. Silvia Toonen and Dr. Eva Laplace on the evolution of multiple-star systems. I develope analytical models and use numerical simulations to understand how stellar interactions in binary and triple-star systems shape their orbital evolution, ultimate fate, and the transient phenomena they produce in both electromagnetic and gravitational-wave radiation.
+In September 2023, I started my PhD at the [Anton Pannekoek Institute](https://api.uva.nl) for Astronomy, where I work with Dr. Silvia Toonen and Dr. Eva Laplace on the evolution of multiple-star systems. I develope analytical models and use numerical simulations to study how stellar interactions in binary and triple systems shape their orbital evolution, ultimate fate, and the transient phenomena they produce in both electromagnetic and gravitational-wave radiation.
 
-Before that, I completed my undergraduate studies at Aristotle University of Thessaloniki and spent a semester abroad at the University of Lancashire. For my Master's thesis, I studied mass transfer from a tertiary to an inner binary using hydrodynamical simulations, working with Dr. Silvia Toonen.
-
+Before that, I completed my undergraduate studies at Aristotle University of Thessaloniki and spent a semester abroad at the University of Lancashire. For my Master's thesis, I investigated mass transfer from a tertiary star onto an inner binary using hydrodynamical simulations, under the supervision Dr. Silvia Toonen.
 
 
 ## Key Interests
@@ -32,7 +31,7 @@ Before that, I completed my undergraduate studies at Aristotle University of The
 
 • Binary and triple star systems 
 <br>
-• Eccentric mass transfer
+• Stable mass transfer
 <br>
 • Gravitational waves from stellar interactions
 
