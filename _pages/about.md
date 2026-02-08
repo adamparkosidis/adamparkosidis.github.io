@@ -18,10 +18,9 @@ Hello there!
 I'm a PhD candidate in astrophysics at the University of Amsterdam.
 </h2>
 
+In September 2023, I started my PhD at the [Anton Pannekoek Institute](https://api.uva.nl) for Astronomy, where I work with Dr. Silvia Toonen and Dr. Eva Laplace on the evolution of multiple-star systems. I develop analytical models and use numerical simulations to study how stellar interactions in binary and triple systems shape their orbital evolution, ultimate fate, and the transient phenomena they produce in both electromagnetic and gravitational-wave radiation.
 
-In September 2023, I started my PhD at the [Anton Pannekoek Institute](https://api.uva.nl) for Astronomy, where I work with Dr. Silvia Toonen and Dr. Eva Laplace on the evolution of multiple-star systems. I develope analytical models and use numerical simulations to study how stellar interactions in binary and triple systems shape their orbital evolution, ultimate fate, and the transient phenomena they produce in both electromagnetic and gravitational-wave radiation.
-
-Before that, I completed my undergraduate studies at Aristotle University of Thessaloniki and spent a semester abroad at the University of Lancashire. For my Master's thesis, I investigated mass transfer from a tertiary star onto an inner binary using hydrodynamical simulations, under the supervision Dr. Silvia Toonen.
+Before that, I completed my undergraduate studies at Aristotle University of Thessaloniki, where I worked with Dr. Padelis Papadopoulos and Dr. Kleomenis Tsiganis. I also spent a semester abroad at the University of Lancashire, where I worked with Dr. Dimitris Stamatellos. For my Master's thesis, I investigated mass transfer from a tertiary star onto an inner binary using hydrodynamical simulations, under the supervision Dr. Silvia Toonen.
 
 
 ## Key Interests
@@ -29,11 +28,11 @@ Before that, I completed my undergraduate studies at Aristotle University of The
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1rem 0; line-height: 2;">
 <div>
 
-• Binary and triple star systems 
+• Binary and triple star systems
 <br>
-• Stable mass transfer
+• Mass transfer
 <br>
-• Gravitational waves from stellar interactions
+• Gravitational waves
 
 </div>
 <div>
