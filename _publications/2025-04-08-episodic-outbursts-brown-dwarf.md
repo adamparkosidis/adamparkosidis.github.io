@@ -7,5 +7,5 @@ date: 2025-04-08
 venue: 'Astronomy & Astrophysics'
 paperurl: 'https://doi.org/10.1051/0004-6361/202348252'
 citation: 'Parkosidis, A., Stamatellos, D., & Riaz, B.'
-excerpt: 'Astronomy & Astrophysics, 696, A104.'
+excerpt: 'Astronomy & Astrophysics, 696, A104'
 ---
