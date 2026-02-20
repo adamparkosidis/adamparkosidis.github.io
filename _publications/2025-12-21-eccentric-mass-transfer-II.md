@@ -7,5 +7,5 @@ date: 2025-12-21
 venue: 'Astronomy & Astrophysics'
 paperurl: 'https://doi.org/10.1051/0004-6361/202558055'
 citation: 'Parkosidis A., Toonen S., Laplace E., Dosopoulou F.'
-excerpt: 'Astronomy & Astrophysics'
+excerpt: 'Astronomy & Astrophysics, 706, A357'
 ---
