@@ -35,7 +35,7 @@ Before that, I completed my undergraduate studies in Physics at Aristotle Univer
 
 • Formation and evolution of binaries and triples
 <br>
-• Mass transfer in circualr and eccentric orbits
+• Mass transfer in circular and eccentric orbits
 <br>
 • Gravitational wave sources
 
