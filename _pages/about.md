@@ -46,7 +46,7 @@ Before that, I completed my undergraduate studies in Physics at Aristotle Univer
 
 
 <div>
-• Analytical modelling
+• Analytical modeling
 <br>
 • Population synthesis
 </div>
