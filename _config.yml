@@ -86,8 +86,7 @@ author:
   location         : "Amsterdam (NL)"
   employer         : 
   pubmed           :
-  googlescholar    :
-  email            : "a.parkosidis@uva.nl"
+  googlescholar    : 
   researchgate     :
   uri              :
   bitbucket        :
@@ -96,17 +95,18 @@ author:
   flickr           :
   facebook         :
   foursquare       :
+  ads              : "https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=(database%3Aastronomy%20OR%20database%3Aphysics)&q=%20author%3A'Parkosidis%2CA.'&sort=date%20desc%2C%20bibcode%20desc&p_=0"
   github           : "adamparkosidis"
   google_plus      :
   keybase          :
-  instagram        :
+  instagram        : 
   impactstory      :
   lastfm           :
   linkedin         : "adamparkosidis/"
   orcid            : "https://orcid.org/0009-0005-3096-1114"
   pinterest        :
   soundcloud       :
-  stackoverflow    :
+  stackoverflow    : 
   steam            :
   tumblr           :
   twitter          :
@@ -114,9 +114,8 @@ author:
   weibo            :
   xing             :
   youtube          :
-  wikipedia        :
-
-
+  wikipedia        : 
+  
 # Reading Files
 include:
   - .htaccess
