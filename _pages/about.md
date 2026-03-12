@@ -94,7 +94,6 @@ First-author papers
 </div> 
 
 
-
 ## Talks & Events
 {: #talks-events}
 
