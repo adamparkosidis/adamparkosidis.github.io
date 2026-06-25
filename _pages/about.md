@@ -65,11 +65,7 @@ First-author papers
 <div>
 {% for post in site.publications reversed %}
   {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
-  {% if year != previous_year %}
-    {% if forloop.index != 1 %}</div>{% endif %}
-    <h3>{{ year }}</h3>
-    {% assign previous_year = year %}
-  {% endif %}
+
   <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--global-bg-color); border: 1px solid var(--global-border-color); border-radius: 4px;">
     <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
       {% if post.paperurl %}
@@ -88,6 +84,9 @@ First-author papers
     {% if post.excerpt %}
       <p style="margin-top: 0.5rem; font-size: 0.95rem;">{{ post.excerpt }}</p>
     {% endif %}
+    {% if post.date %}
+      <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);"><strong>Date:</strong> {{ post.date | date: "%B %d, %Y" }}</div>
+    {% endif %}
   </div>
 {% endfor %}
 
@@ -100,11 +99,6 @@ First-author papers
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1rem 0;">
 {% for post in site.talks reversed %}
   {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
-  {% if year != previous_year %}
-    {% if forloop.index != 1 %}</div>{% endif %}
-    <h3>{{ year }}</h3>
-    {% assign previous_year = year %}
-  {% endif %}
   <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--global-bg-color); border: 1px solid var(--global-border-color); border-radius: 1px;">
     <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
       {% if post.paperurl %}
