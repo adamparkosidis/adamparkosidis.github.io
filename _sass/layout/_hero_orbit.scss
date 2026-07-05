@@ -40,13 +40,20 @@
   position: absolute;
   left: clamp(1.25rem, 5vw, 3rem);
   bottom: clamp(1.4rem, 5vw, 2.4rem);
-  right: 1rem;
+  /* Reserve the same footprint as .hero-orbit__control (width + its own right
+     offset) plus a gap, so the statement text can never run under it. Must be
+     kept in sync with that rule below 481px, where the control is hidden. */
+  right: calc(min(260px, 60vw) + clamp(1rem, 3vw, 1.6rem) + 1.5rem);
   /* Always the dark-theme body-text color: the hero's canvas background stays
      dark regardless of site theme, so it can't follow --global-text-color
      (which turns near-black in light mode and would vanish here). */
   color: #f2ede6;
   pointer-events: none;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 480px) {
+    right: 1rem;
+  }
 }
 
 .hero-orbit__statement {
