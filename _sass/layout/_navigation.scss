@@ -175,6 +175,9 @@
 .greedy-nav {
   position: relative;
   min-width: 250px;
+  /* reserve room for the absolutely-positioned toggle button on the right,
+     so the right-aligned link list (below) never sits underneath it */
+  padding-right: 3.5rem;
   background: var(--global-bg-color);
 
   a {
@@ -203,16 +206,19 @@
   }
 
   .visible-links {
+    /* Must shrink-wrap to its content (not stretch full-width): the greedy-nav
+       script compares this list's rendered width against the available space
+       to decide when to collapse links into the hidden dropdown. Pushing it
+       right with auto margins (rather than stretching it) keeps that
+       measurement accurate. */
     display: table;
+    margin-left: auto;
 
     li {
       display: table-cell;
       vertical-align: middle;
 
       &:first-child {
-        font-weight: bold;
-        text-wrap: wrap;
-
         a {
           margin-left: 0;
         }

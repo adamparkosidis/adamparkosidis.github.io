@@ -6,9 +6,8 @@ redirect_from:
   - /about/
   - /about.html
 header:
-    overlay_image: opo0932a.jpg
-    caption: "Credit: NASA, ESA, and F. Paresce (INAF-IASF, Bologna, Italy), R. O'Connell (University of Virginia, 
-    Charlottesville), and the Wide Field Camera 3 Science Oversight Committee"
+    hero_orbit: true
+    hero_tagline: "A donor star overflows its Roche lobe, feeding gas onto a compact object — the physics at the heart of my research."
 ---
 
 

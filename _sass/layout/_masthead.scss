@@ -28,6 +28,10 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     padding: 0.5em 1em;
     font-family: $sans-serif-narrow;
 
@@ -45,7 +49,23 @@
   }
 }
 
+.masthead__brand {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--global-masthead-link-color);
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--global-masthead-link-color-hover);
+  }
+}
+
 .masthead__menu {
+  /* grow to fill the space next to the brand, so the greedy-nav script (which
+     measures available width to decide when to collapse links) sees the bar's
+     true width rather than shrinking to its min-width. */
+  flex: 1;
+  min-width: 0;
 
   ul {
     margin: 0;
@@ -60,10 +80,4 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
-
-  &--lg {
-    padding-right: 2em;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-  }
 }

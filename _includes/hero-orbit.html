@@ -1,0 +1,25 @@
+{% include base_path %}
+
+<div class="hero-orbit" data-orbit-hero>
+  <canvas class="hero-orbit__canvas" data-orbit-bg aria-hidden="true"></canvas>
+  <canvas class="hero-orbit__canvas" data-orbit-fx aria-hidden="true"></canvas>
+  <canvas class="hero-orbit__canvas" data-orbit-fg aria-hidden="true"></canvas>
+  <div class="hero-orbit__scrim" aria-hidden="true"></div>
+
+  <div class="hero-orbit__overlay">
+    <h1 class="hero-orbit__statement">{{ page.header.hero_tagline | default: site.title }}</h1>
+  </div>
+
+  <div class="hero-orbit__control">
+    <div class="hero-orbit__control-row">
+      <span class="hero-orbit__control-label">Orbital eccentricity</span>
+      <span class="hero-orbit__control-val" data-orbit-ecc-val>0.50</span>
+    </div>
+    <input type="range" class="hero-orbit__control-slider" data-orbit-ecc
+           min="0" max="0.85" step="0.01" value="0.5"
+           aria-label="Orbital eccentricity">
+    <p class="hero-orbit__control-hint">Drag to see mass transfer switch on near periastron.</p>
+  </div>
+</div>
+
+<script src="{{ base_path }}/assets/js/orbit-hero.js" defer></script>

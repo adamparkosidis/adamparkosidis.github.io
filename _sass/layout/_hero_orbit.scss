@@ -1,0 +1,115 @@
+/* ==========================================================================
+   ORBIT HERO
+   Interactive canvas hero (eccentric-orbit mass-transfer animation) used on
+   the homepage in place of a static banner image.
+   ========================================================================== */
+
+.hero-orbit {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 52vw, 480px);
+  margin-bottom: 2em;
+  overflow: hidden;
+  background: #04060c;
+  animation: intro 0.3s both;
+  animation-delay: 0.25s;
+
+  @include breakpoint($large) {
+    height: clamp(360px, 46vw, 520px);
+  }
+}
+
+.hero-orbit__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-orbit__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 11, 0.78) 0%, rgba(3, 5, 11, 0.3) 44%, rgba(3, 5, 11, 0) 72%),
+    linear-gradient(0deg, rgba(3, 5, 11, 0.6) 0%, rgba(3, 5, 11, 0) 42%);
+}
+
+.hero-orbit__overlay {
+  position: absolute;
+  left: clamp(1.25rem, 5vw, 3rem);
+  bottom: clamp(1.4rem, 5vw, 2.4rem);
+  right: 1rem;
+  /* Always the dark-theme body-text color: the hero's canvas background stays
+     dark regardless of site theme, so it can't follow --global-text-color
+     (which turns near-black in light mode and would vanish here). */
+  color: #f2ede6;
+  pointer-events: none;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-orbit__statement {
+  margin: 0;
+  max-width: 42ch;
+  font-family: $serif;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  font-size: clamp(1.15rem, 2.8vw, 1.6rem);
+  border-bottom: none;
+}
+
+.hero-orbit__control {
+  position: absolute;
+  right: clamp(1rem, 3vw, 1.6rem);
+  bottom: clamp(1rem, 3vw, 1.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.7rem 0.95rem;
+  width: min(260px, 60vw);
+  background: rgba(9, 13, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: $border-radius;
+  backdrop-filter: blur(6px);
+  color: #eaf0fb;
+
+  /* hide the interactive control on narrow phones; the animation still plays */
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.hero-orbit__control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.hero-orbit__control-label {
+  font-family: $monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b9c6db;
+}
+
+.hero-orbit__control-val {
+  font-family: $monospace;
+  font-size: 0.8rem;
+  color: #7fe6e0;
+}
+
+.hero-orbit__control-slider {
+  width: 100%;
+  accent-color: #45d6d2;
+}
+
+.hero-orbit__control-hint {
+  margin: 0;
+  font-size: 0.68rem;
+  color: #98a6bd;
+}
