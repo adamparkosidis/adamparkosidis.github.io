@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Adam Parkosidis"
 title_separator          : "-"
 name                     : &name "Adam Parkosidis"
-description              : &description "PhD Astrophysics | Binary Star Evolution | Mass Transfer | Anton Pannekoek Institute | University of Amsterdam"
+description              : &description "PhD Astrophysics • Binary Star Evolution • Mass Transfer • Anton Pannekoek Institute • University of Amsterdam"
 url                      : https://adamparkosidis.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "adamparkosidis/adamparkosidis.github.io"
@@ -66,9 +66,14 @@ og_image                 :  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
+  type                   : "Person"
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
+    - "https://github.com/adamparkosidis"
+    - "https://www.linkedin.com/in/adamparkosidis/"
+    - "https://orcid.org/0009-0005-3096-1114"
+    - "https://scholar.google.com/citations?user=9GKi3_oAAAAJ&hl=en"
+    - "https://www.researchgate.net/profile/Adam-Parkosidis"
 
 
 # Analytics
@@ -84,10 +89,10 @@ author:
   avatar           : "Adam_Parkosidis.jpg"
   bio              : "PhD candidate at University of Amsterdam"
   location         : "Amsterdam (NL)"
-  employer         : 
+  employer         :
   pubmed           :
-  googlescholar    : 
-  researchgate     :
+  googlescholar    : "https://scholar.google.com/citations?user=9GKi3_oAAAAJ&hl=en"
+  researchgate     : "https://www.researchgate.net/profile/Adam-Parkosidis"
   uri              :
   bitbucket        :
   codepen          :
