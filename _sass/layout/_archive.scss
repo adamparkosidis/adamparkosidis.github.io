@@ -86,6 +86,122 @@
 
 
 /*
+   Item card (unified publications/talks/portfolio rendering)
+   ========================================================================== */
+
+.item-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  /* Two equal columns so every card is the same width; combined with the
+     flex/stretch rules below, cards on the same row also share a height. */
+  @include breakpoint($medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .item-card {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.item-card {
+  margin-bottom: 1.5em;
+}
+
+.item-card__inner {
+  flex: 1;
+  padding: 0.9rem 1.05rem;
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+}
+
+.item-card__title {
+  /* Reset the heading's default 2em top margin so the title hugs the top. */
+  margin: 0 0 0.4em;
+  font-size: $type-size-4;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+
+  /* The title itself is the primary link, so keep it clean (no underline). */
+  &,
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--global-link-color-hover);
+  }
+}
+
+/* Override the theme's hover-underline-the-title behaviour for cards. */
+.item-card:hover .item-card__title,
+.item-card:hover .item-card__title a {
+  text-decoration: none;
+}
+
+.item-card__meta {
+  margin: 0;
+  font-size: $type-size-5;
+  color: var(--global-text-color-light);
+}
+
+.item-card__meta--stacked {
+  .item-card__venue {
+    margin-top: 0.15em;
+  }
+
+  .item-card__location-row {
+    margin-top: 0.15em;
+  }
+}
+
+.item-card__badge {
+  display: inline-block;
+  margin-left: 0.5em;
+  padding: 0.15em 0.55em;
+  font-size: $type-size-6;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--global-accent2-color);
+  border-radius: $border-radius;
+}
+
+.item-card__media {
+  margin: 0.7em 0 0;
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border: 0;
+  }
+
+  &--image img {
+    width: 100%;
+    border-radius: $border-radius;
+  }
+}
+
+.item-card .archive__item-excerpt {
+  font-family: $serif;
+}
+
+.item-card__links {
+  margin: 0.7em 0 0;
+}
+
+.item-card__links a {
+  margin-right: 0.5em;
+}
+
+
+/*
    List view
    ========================================================================== */
 

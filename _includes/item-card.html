@@ -1,0 +1,77 @@
+{% include base_path %}
+
+{% assign item = include.item %}
+{% assign coll_output = site.collections[item.collection].output %}
+
+<div class="{{ include.type | default: "list" }}__item item-card">
+  <article class="archive__item item-card__inner" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <h3 class="archive__item-title item-card__title" itemprop="headline">
+      {% if coll_output %}
+        <a href="{{ base_path }}{{ item.url }}" rel="permalink">{{ item.title }}</a>
+      {% elsif item.links.size > 0 %}
+        <a href="{{ item.links[0].url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+      {% else %}
+        {{ item.title }}
+      {% endif %}
+    </h3>
+
+    {% if item.collection == 'talks' %}
+      {% if item.date or item.venue or item.location or item.item_type %}
+        <div class="item-card__meta item-card__meta--stacked page__meta">
+          {% if item.date %}<div class="item-card__date"><time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%B %d, %Y" }}</time></div>{% endif %}
+          {% if item.venue %}<div class="item-card__venue"><i>{{ item.venue }}</i></div>{% endif %}
+          {% if item.location or item.item_type %}
+            <div class="item-card__location-row">
+              {% if item.location %}<span class="item-card__location">{{ item.location }}</span>{% endif %}
+              {% if item.item_type %}<span class="item-card__badge">{{ item.item_type }}</span>{% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% else %}
+      {% if item.date or item.venue or item.location or item.item_type %}
+        <p class="item-card__meta page__meta">
+          {% if item.date %}<time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%B %d, %Y" }}</time>{% endif %}
+          {% if item.venue %}<span class="item-card__venue"> &bull; <i>{{ item.venue }}</i></span>{% endif %}
+          {% if item.location %}<span class="item-card__location">, {{ item.location }}</span>{% endif %}
+          {% if item.item_type %}<span class="item-card__badge">{{ item.item_type }}</span>{% endif %}
+        </p>
+      {% endif %}
+    {% endif %}
+
+    {% if item.media.embed_provider == "youtube" %}
+      <div class="item-card__media">
+        <iframe
+          src="https://www.youtube.com/embed/{{ item.media.embed_id }}"
+          title="{{ item.title }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    {% elsif item.media.image %}
+      <div class="item-card__media item-card__media--image">
+        <img src="{{ item.media.image | prepend: '/images/' | prepend: base_path }}" alt="">
+      </div>
+    {% endif %}
+
+    {% comment %} Publications omit the excerpt/description line (the title links to the paper). {% endcomment %}
+    {% if item.excerpt and item.collection != 'publications' %}
+      <div class="archive__item-excerpt item-card__excerpt" itemprop="description">{{ item.excerpt | markdownify }}</div>
+    {% endif %}
+
+    {% comment %} Publications: title already links to the paper, so the citation
+    line and the redundant Paper/arXiv link are suppressed. {% endcomment %}
+    {% if item.links and item.collection != 'publications' %}
+      <p class="item-card__links">
+        {% for link in item.links %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+  </article>
+</div>

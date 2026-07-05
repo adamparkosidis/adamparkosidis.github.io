@@ -11,6 +11,8 @@ author_profile: true
 
 {% endif %}
 
+<div class="item-card-grid">
 {% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+  {% include item-card.html item=post %}
 {% endfor %}
+</div>

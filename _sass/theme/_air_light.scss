@@ -3,19 +3,22 @@
    ========================================================================== */
 
 /* Color codes used for the theme */
-$primary-color              : #0092ca;
+$primary-color              : #0e7c7b;
 $dark-primary-color         : mix(#000, $primary-color, 40%);
 $darker-primary-color       : mix(#000, $primary-color, 60%);
 $light-primary-color        : mix(#000, $primary-color, 50%);
 
-$background                 : #eeeeee;
+$background                 : #efede7;
 $background-light           : mix(#fff, $background, 20%);
 $background-lighter         : mix(#fff, $background, 90%);
-$text                       : #222831;
-$link                       : #393e46;
+$text                       : #1b1b18;
+$link                       : mix($text, $primary-color, 65%);
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
 $footer                     : $primary-color;
+
+/* Secondary accent, used sparingly (e.g. item badges) */
+$accent-2                   : #c97a3b;
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
@@ -52,4 +55,5 @@ $sidebar-screen-min-width   : 1024px;
     --global-text-color                 : #{$text};
     --global-text-color-light           : #{$light-primary-color};
     --global-thead-color                : #{$background-lighter};
+    --global-accent2-color              : #{$accent-2};
 }

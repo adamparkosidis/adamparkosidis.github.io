@@ -26,98 +26,23 @@ Before that, I completed my undergraduate studies in Physics at Aristotle Univer
 
 ## Research
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1rem 0; line-height: 2;">
-<div>
+<div class="research-grid">
+<div markdown="1">
 
-<div>
-<strong>Interests</strong>
-</div>
+**Interests**
 
-• Formation and evolution of binaries and triples
-<br>
-• Mass transfer in circular and eccentric orbits
-<br>
-• Gravitational wave sources
+- Formation and evolution of binaries and triples
+- Mass transfer in circular and eccentric orbits
+- Gravitational wave sources
 
 </div>
+<div markdown="1">
 
-<div>
-<strong>Methods</strong>
+**Methods**
 
-
-<div>
-• Analytical modeling
-<br>
-• Population synthesis
-</div>
-• Hydrodynamical simulations
-</div>
+- Analytical modeling
+- Population synthesis
+- Hydrodynamical simulations
 
 </div>
-
-## Publications
-{: #publications}
-
-<h3>
-First-author papers
-</h3>
-
-<div>
-{% for post in site.publications reversed %}
-  {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
-
-  <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--global-bg-color); border: 1px solid var(--global-border-color); border-radius: 4px;">
-    <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}" style="color: var(--global-link-color); text-decoration: none;">{{ post.title }}</a>
-      {% else %}
-        {{ post.title }}
-      {% endif %}
-    </div>
-    {% if post.citation %}
-      <div style="font-size: 0.9rem; font-style: italic; color: var(--text-color-muted, #666);">{{ post.citation }}</div>
-    {% else %}
-      {% if post.venue %}
-        <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);"><i>{{ post.venue }}</i></div>
-      {% endif %}
-    {% endif %}
-    {% if post.excerpt %}
-      <p style="margin-top: 0.5rem; font-size: 0.95rem;">{{ post.excerpt }}</p>
-    {% endif %}
-    {% if post.date %}
-      <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);"><strong>Date:</strong> {{ post.date | date: "%B %d, %Y" }}</div>
-    {% endif %}
-  </div>
-{% endfor %}
-
-</div> 
-
-
-## Talks & Events
-{: #talks-events}
-
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1rem 0;">
-{% for post in site.talks reversed %}
-  {% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
-  <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--global-bg-color); border: 1px solid var(--global-border-color); border-radius: 1px;">
-    <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}" style="color: var(--global-link-color); text-decoration: none;">{{ post.title }}</a>
-      {% else %}
-        {{ post.title }}
-      {% endif %}
-    </div>
-      {% if post.venue %}
-        <div style="font-size: 1.0rem; color: var(--text-color-muted, #666);"><i>{{ post.venue }}</i></div>
-      {% endif %}
-    {% if post.location %}
-      <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);">{{ post.location }}</div>
-    {% endif %}
-    {% if post.date %}
-      <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);"><strong>Date:</strong> {{ post.date | date: "%B %d, %Y" }}</div>
-    {% endif %}
-    {% if post.talk_type %}
-      <div style="font-size: 0.9rem; color: var(--text-color-muted, #666);">{{ post.talk_type }}</div>
-    {% endif %}
-  </div>
-{% endfor %}
+</div>

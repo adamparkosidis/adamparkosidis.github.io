@@ -5,7 +5,10 @@ category: manuscripts
 permalink: /publication/2025-12-21-eccentric-mass-transfer-II.md
 date: 2025-12-21
 venue: 'Astronomy & Astrophysics'
-paperurl: 'https://doi.org/10.1051/0004-6361/202558055'
+item_type: 'Journal article'
+links:
+  - label: 'Paper'
+    url: 'https://doi.org/10.1051/0004-6361/202558055'
 citation: 'Parkosidis A., Toonen S., Laplace E., Dosopoulou F.'
 excerpt: 'Astronomy & Astrophysics, 706, A357'
 ---

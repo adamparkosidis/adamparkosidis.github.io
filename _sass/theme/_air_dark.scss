@@ -3,19 +3,22 @@
    ========================================================================== */
 
 /* Color codes used for the theme */
-$primary-color              : #00adb5;
+$primary-color              : #3fd1cf;
 $dark-primary-color         : mix(#000, $primary-color, 40%);
 $darker-primary-color       : mix(#000, $primary-color, 60%);
 $light-primary-color        : mix(#000, $primary-color, 50%);
 
-$background                 : #252a34;
+$background                 : #16181a;
 $background-light           : mix(#fff, $background, 20%);
 $background-lighter         : mix(#fff, $background, 90%);
-$text                       : #eaeaea;
+$text                       : #f0eee8;
 $link                       : mix($primary-color, $text, 40%);
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
 $footer                     : mix(#000, $background, 30%);
+
+/* Secondary accent, used sparingly (e.g. item badges) */
+$accent-2                   : #e0965a;
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
@@ -52,4 +55,5 @@ html[data-theme="dark"] {
     --global-text-color                 : #{$text};
     --global-text-color-light           : #{$light-primary-color};
     --global-thead-color                : #{$background-lighter};
+    --global-accent2-color              : #{$accent-2};
 }

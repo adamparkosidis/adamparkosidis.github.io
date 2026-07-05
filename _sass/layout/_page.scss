@@ -37,9 +37,35 @@
 .page__title {
   margin-top: 0;
   line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 
   & + .page__meta {
     margin-top: -0.5em;
+  }
+}
+
+.page__content {
+  p, li {
+    font-family: $serif;
+  }
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem 2rem;
+
+  @include breakpoint($medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  p {
+    margin-bottom: 0.4em;
+  }
+
+  ul {
+    margin-top: 0;
   }
 }
 

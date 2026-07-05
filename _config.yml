@@ -180,16 +180,10 @@ collections:
   publications:
     output: false
     permalink: /:collection/:path/
-  research:
-    output: false
-    permalink: /:collection/:path/
   talks:
     output: false
     permalink: /:collection/:path/
   portfolio:
-    output: true
-    permalink: /:collection/:path/
-  tools:
     output: true
     permalink: /:collection/:path/
 
@@ -246,14 +240,6 @@ defaults:
       type: portfolio
     values:
       layout: single
-      author_profile: true
-      share: true
-  # _tools
-  - scope:
-      path: ""
-      type: tools
-    values:
-      layout: tools
       author_profile: true
       share: true
 
