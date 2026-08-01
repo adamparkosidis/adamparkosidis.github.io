@@ -63,11 +63,13 @@
       <div class="archive__item-excerpt item-card__excerpt" itemprop="description">{{ item.excerpt | markdownify }}</div>
     {% endif %}
 
-    {% comment %} Publications: title already links to the paper, so the citation
-    line and the redundant Paper/arXiv link are suppressed. {% endcomment %}
-    {% if item.links and item.collection != 'publications' %}
+    {% comment %} When the title already links to links[0] (collections with
+    output: false, e.g. talks and publications), list only the remaining links so
+    the title isn't duplicated below the card. {% endcomment %}
+    {% if coll_output %}{% assign link_offset = 0 %}{% else %}{% assign link_offset = 1 %}{% endif %}
+    {% if item.links and item.links.size > link_offset %}
       <p class="item-card__links">
-        {% for link in item.links %}
+        {% for link in item.links offset: link_offset %}
           <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
         {% endfor %}
       </p>

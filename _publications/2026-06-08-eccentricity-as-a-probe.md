@@ -1,5 +1,5 @@
 ---
-title: "Eccentricity as a probe of mass-transfer physics. Eccentric mass transfer as a solution to the wide eccentric binary problem"
+title: "Reframing the wide eccentric binary problem: Eccentricity as a probe of mass-transfer physics"
 collection: publications
 category: manuscripts
 permalink: /publication/2026-06-08-eccentricity-as-a-probe.md
