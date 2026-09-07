@@ -1,0 +1,141 @@
+{% comment %}
+  One "selected publication" entry on /research/. Driven by front matter on the
+  _publications/ document:
+
+    selected: true
+    summary: >                       # plain-language description, optional;
+      ...                            # falls back to `excerpt`
+
+  Figures live in images/ and are referenced by bare filename. Each figure is
+  either WIDE — full width of the entry, stacked above the summary, for long
+  horizontal figures — or not, in which case it goes in a column on the left with
+  the summary running alongside it. Single figure:
+
+    figure: some-figure.png
+    figure_alt: "..."                # optional
+    figure_caption: "..."            # optional
+    figure_wide: true                # optional, default false
+
+  Several figures (mirrors the `links:` list-of-maps pattern) — can be combined
+  with `figure:` above, in which case that one comes first within its slot:
+
+    figures:
+      - src: evolution.png
+        wide: true                   # optional, default false
+        alt: "..."                   # optional
+        caption: "..."               # optional
+      - src: sdBs_v2.png             # not wide: sits left of the summary
+
+  So an entry can mix both: a long figure across the top, a tall one beside the
+  text.
+
+  The side figure's column defaults to 35% of the entry's width (see
+  _sass/layout/_research.scss). Give it an explicit width to balance the figure
+  against the text beside it — the right value depends on the figure's
+  proportions and how much you wrote, so tune it by eye:
+
+      figures:
+        - src: sdBs_v2.png
+          width: 55%               # any CSS length
+
+  or, equivalently, `figure_width: 55%` at the top level, which takes precedence.
+{% endcomment %}
+
+{% assign item = include.item %}
+
+{% capture wide_figures %}
+  {% if item.figure and item.figure_wide %}
+    {% include research-figure.html src=item.figure alt=item.figure_alt caption=item.figure_caption %}
+  {% endif %}
+  {% for f in item.figures %}
+    {% if f.wide %}
+      {% include research-figure.html src=f.src alt=f.alt caption=f.caption %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% capture side_figures %}
+  {% unless item.figure_wide %}
+    {% if item.figure %}
+      {% include research-figure.html src=item.figure alt=item.figure_alt caption=item.figure_caption %}
+    {% endif %}
+  {% endunless %}
+  {% for f in item.figures %}
+    {% unless f.wide %}
+      {% include research-figure.html src=f.src alt=f.alt caption=f.caption %}
+    {% endunless %}
+  {% endfor %}
+{% endcapture %}
+
+{% assign wide_figures = wide_figures | strip %}
+{% assign side_figures = side_figures | strip %}
+
+{% comment %} With a side figure and nothing above it, the heading belongs in the
+right-hand column so it sits directly over the summary. An entry that opens with
+a wide figure keeps its heading at the top, so the figure isn't the first thing
+on the page with no title over it. {% endcomment %}
+{% assign heading_in_column = false %}
+{% if side_figures != '' and wide_figures == '' %}{% assign heading_in_column = true %}{% endif %}
+
+{% comment %} Optional width for the figure column. Entry-level `figure_width`
+wins; otherwise the first side figure that sets `width`. {% endcomment %}
+{% assign figure_col = item.figure_width %}
+{% unless figure_col %}
+  {% for f in item.figures %}
+    {% unless f.wide %}
+      {% if f.width and figure_col == nil %}{% assign figure_col = f.width %}{% endif %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+{% capture heading %}
+  <h3 class="research-item__title">
+    {% if item.links.size > 0 %}
+      <a href="{{ item.links[0].url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+    {% else %}
+      {{ item.title }}
+    {% endif %}
+  </h3>
+
+  {% if item.citation %}
+    <p class="research-item__meta">{{ item.citation }}</p>
+  {% endif %}
+{% endcapture %}
+
+<article class="research-item">
+
+  {% unless heading_in_column %}{{ heading }}{% endunless %}
+
+  {{ wide_figures }}
+
+  <div class="research-item__split{% if side_figures == '' %} research-item__split--nofigure{% endif %}"{% if figure_col %} style="--research-figure-col: {{ figure_col }}"{% endif %}>
+    {% if side_figures != '' %}
+      <div class="research-item__figures">{{ side_figures }}</div>
+    {% endif %}
+
+    {% comment %} Summary and the "published in" line share the right-hand
+    column, so the line sits directly under the summary rather than spanning the
+    full width below the figure. {% endcomment %}
+    <div class="research-item__text">
+      {% if heading_in_column %}{{ heading }}{% endif %}
+
+      <div class="research-item__summary">
+        {% if item.summary %}
+          {{ item.summary | markdownify }}
+        {% elsif item.excerpt %}
+          {{ item.excerpt | markdownify }}
+        {% endif %}
+      </div>
+
+      {% if item.venue or item.links.size > 0 %}
+        <p class="research-item__links">
+          {% if item.venue %}This work is published in ApJ, <i>{{ item.venue }}</i>{% if item.links.size > 0 %} &middot; {% endif %}{% endif %}
+          {% for link in item.links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
+          {% endfor %}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+
+</article>

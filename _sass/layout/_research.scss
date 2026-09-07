@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Research page — "Selected publications" / "Selected talks" entries
+   ========================================================================== */
+
+.research-selection {
+  margin: 0 0 0.5em;
+}
+
+.research-item {
+  padding: 1.4em 0;
+  border-top: 1px solid var(--global-border-color);
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0.4em;
+  }
+}
+
+/* Figures marked `wide` run the full width of the entry, above the summary.
+   Everything that isn't wide goes in this two-column region: figures on the
+   left, summary alongside. On narrow screens it collapses to one column, so
+   the figures simply stack above the text. */
+.research-item__split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+
+  @include breakpoint($medium) {
+    /* ~350px figure / ~650px summary at the page's full width. Kept as
+       fractions rather than pixels so the ratio holds at every width.
+       --research-figure-col, set inline from front matter, overrides it per
+       entry. Declared here (not inline) so it only applies above $medium —
+       below it the split is a single column. */
+    grid-template-columns:
+      minmax(0, var(--research-figure-col, 35fr)) minmax(0, 65fr);
+    gap: 1.6em;
+    align-items: start;
+  }
+
+  /* Nothing in the left column — let the summary use the whole width. */
+  &--nofigure {
+    @include breakpoint($medium) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.research-item__figure {
+  /* <figure> carries a large UA margin */
+  margin: 0 0 0.9em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--global-border-color);
+    border-radius: $border-radius;
+  }
+
+  figcaption {
+    margin-top: 0.4em;
+    font-size: $type-size-6;
+    color: var(--global-text-color-light);
+  }
+}
+
+/* An embedded recording sits in the same side slot a figure would. aspect-ratio
+   keeps the player's height following from its column width, so the column
+   width is all that needs setting. */
+.research-item__media {
+  margin: 0 0 0.9em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: $border-radius;
+  }
+}
+
+.research-item__title {
+  /* the theme gives headings a large top margin; the row already has padding */
+  margin: 0 0 0.3em;
+  font-size: $type-size-4;
+  font-weight: 700;
+  line-height: 1.3;
+
+  &,
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--global-link-color-hover);
+  }
+}
+
+.research-item__meta {
+  margin: 0 0 0.5em;
+  font-size: $type-size-6;
+  color: var(--global-text-color-light);
+}
+
+.research-item__summary {
+  font-family: $serif;
+  font-size: $type-size-6;
+
+  p {
+    margin: 0 0 0.6em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.research-item__links {
+  margin: 0.6em 0 0;
+  font-size: $type-size-6;
+  color: var(--global-text-color-light);
+
+  a {
+    margin-right: 0.15em;
+  }
+}
+
+.research-selection__more {
+  margin: 0.2em 0 0;
+  font-size: $type-size-6;
+}

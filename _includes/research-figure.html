@@ -1,0 +1,13 @@
+{% comment %}
+  A single figure on a /research/ entry. Params: src (filename under images/),
+  alt, caption. Kept separate so research-publication.html can emit figures into
+  either the full-width slot or the side column without duplicating the markup.
+{% endcomment %}
+
+{% include base_path %}
+
+<figure class="research-item__figure">
+  <img src="{{ include.src | prepend: '/images/' | prepend: base_path }}"
+       alt="{{ include.alt | default: '' }}" loading="lazy">
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

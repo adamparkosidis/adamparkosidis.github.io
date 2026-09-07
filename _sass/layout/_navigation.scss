@@ -264,6 +264,102 @@
                 transform: scaleX(1); /* reveal*/
       }
     }
+
+    /* Dropdown submenu. Absolutely positioned (i.e. out of flow) on purpose:
+       the greedy-nav script measures this list's width to decide when to
+       collapse links, so an in-flow submenu would corrupt that measurement. */
+    .masthead__menu-item--has-children {
+      position: relative;
+    }
+
+    .masthead__submenu {
+      position: absolute;
+      /* Drop clear of the masthead's bottom padding so the panel doesn't
+         straddle the masthead's bottom edge. */
+      top: calc(100% + 0.6rem);
+      /* Right-aligned like .hidden-links, since the link list itself is
+         pushed to the right edge of the nav. */
+      right: 0;
+      min-width: 12rem;
+      margin: 0;
+      padding: 0.25rem 0;
+      list-style: none;
+      background: var(--global-bg-color);
+      border: 1px solid var(--global-border-color);
+      border-radius: $border-radius;
+      box-shadow: 0 4px 14px rgba(#000, 0.18);
+      /* below the greedy-nav toggle button, above page content */
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translateY(-4px);
+              transform: translateY(-4px);
+      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+
+      /* Invisible bridge across the gap above. It's a descendant of the parent
+         <li>, so the pointer can cross into the panel without :hover dropping. */
+      &:before {
+        content: "";
+        position: absolute;
+        top: -0.6rem;
+        left: 0;
+        right: 0;
+        height: 0.6rem;
+      }
+
+      li {
+        display: block;
+      }
+
+      a {
+        margin: 0;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+
+        /* no sliding underline inside the panel */
+        &:before {
+          content: none;
+        }
+
+        &:hover {
+          color: var(--global-masthead-link-color-hover);
+          background: var(--global-border-color);
+        }
+      }
+    }
+
+    /* :focus-within opens the panel for keyboard users without any JS. */
+    .masthead__menu-item--has-children:hover > .masthead__submenu,
+    .masthead__menu-item--has-children:focus-within > .masthead__submenu {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: none;
+              transform: none;
+    }
+  }
+
+  /* Thin V chevron, drawn as two borders of a square rotated 45deg. */
+  .masthead__caret {
+    display: inline-block;
+    width: 0.36em;
+    height: 0.36em;
+    margin: -0.18em 0 0 0.45em;
+    vertical-align: middle;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    transition: transform 0.15s ease;
+  }
+
+  .visible-links {
+    .masthead__menu-item--has-children:hover > a .masthead__caret,
+    .masthead__menu-item--has-children:focus-within > a .masthead__caret {
+      /* flip to point up while the panel is open */
+      -webkit-transform: rotate(-135deg);
+              transform: rotate(-135deg);
+      margin-top: 0.06em;
+    }
   }
 
   .hidden-links {
@@ -274,7 +370,7 @@
     padding: 5px;
     border: 1px solid var(--global-border-color);
     border-radius: $border-radius;
-    background: #fff;
+    background: var(--global-bg-color);
     box-shadow: 0 0 10px rgba(#000, 0.25);
 
     a {
@@ -309,7 +405,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: #fff transparent;
+      border-color: var(--global-bg-color) transparent;
       display: block;
       z-index: 1;
     }
@@ -320,6 +416,43 @@
 
       &:last-child {
         border-bottom: none;
+      }
+    }
+
+    /* Greedy nav moves whole <li>s in here, submenu included. Inside the
+       collapsed panel there is nothing to hover, so render the children as a
+       plain indented list that is always visible. */
+    .masthead__caret {
+      display: none;
+    }
+
+    .masthead__submenu {
+      position: static;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: none;
+              transform: none;
+
+      /* no hover bridge needed in the collapsed panel */
+      &:before {
+        content: none;
+      }
+
+      li:first-child {
+        border-top: 1px solid var(--global-border-color);
+      }
+
+      a {
+        padding-left: 2.5rem;
+        font-size: $type-size-6;
       }
     }
   }

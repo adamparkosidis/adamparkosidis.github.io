@@ -27,6 +27,17 @@
   }
 }
 
+/* Sidebar-less archive page — see the .page--full note in _page.scss. */
+.archive--full {
+  @include breakpoint($large) {
+    /* span the full 12: prefix/suffix add padding *inside* the span,
+       so 10-of-12 here would leave the block narrower than intended. */
+    @include span(12 of 12);
+    @include prefix(1 of 12);
+    @include suffix(1 of 12);
+  }
+}
+
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;

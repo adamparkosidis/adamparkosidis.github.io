@@ -9,11 +9,14 @@
 
 
 main:
-  - title: "Publications"
-    url: /publications/
+  - title: "Research"
+    url: /research/
+    children:
+      - title: "Publications"
+        url: /publications/
 
-  - title: "Talks"
-    url: /talks/
+      - title: "Talks"
+        url: /talks/
 
   - title: "Portfolio"
     url: /portfolio/

@@ -34,6 +34,21 @@
   }
 }
 
+/* No author-profile sidebar on this page (see _includes/sidebar.html): the
+   content would otherwise stay pinned right with an empty left gutter. Keep the
+   same column width for readable line lengths, but centre it.
+   (.archive--full is the same rule, in _archive.scss so it lands after
+   .archive in the cascade.) */
+.page--full {
+  @include breakpoint($large) {
+    /* span the full 12: prefix/suffix add padding *inside* the span,
+       so 10-of-12 here would leave the block narrower than intended. */
+    @include span(12 of 12);
+    @include prefix(1 of 12);
+    @include suffix(1 of 12);
+  }
+}
+
 .page__title {
   margin-top: 0;
   line-height: 1;

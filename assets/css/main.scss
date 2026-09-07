@@ -35,6 +35,9 @@
     "layout/page",
     "layout/hero_orbit",
     "layout/archive",
+    // after layout/archive: .archive a underlines links, and the research
+    // entries opt out of that for their titles
+    "layout/research",
     "layout/sidebar",
     "layout/json_cv",
 

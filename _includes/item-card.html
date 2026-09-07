@@ -40,7 +40,10 @@
       {% endif %}
     {% endif %}
 
-    {% if item.media.embed_provider == "youtube" %}
+    {% comment %} Talks omit the embedded player (the card title links straight to
+    the recording). The player still appears beside the abstract in the "Selected
+    talks" section on /research/, via _includes/research-talk.html. {% endcomment %}
+    {% if item.media.embed_provider == "youtube" and item.collection != 'talks' %}
       <div class="item-card__media">
         <iframe
           src="https://www.youtube.com/embed/{{ item.media.embed_id }}"

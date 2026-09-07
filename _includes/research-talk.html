@@ -1,0 +1,95 @@
+{% comment %}
+  One "selected talk" block on /research/: title, a date | venue | type line, and
+  the abstract. Driven by front matter on the _talks/ document:
+
+    selected: true
+    summary: >                       # abstract / description, optional;
+      ...                            # falls back to `excerpt`
+
+  A recording can be embedded beside the abstract instead of sitting in the link
+  list, using the same `media:` keys as _includes/item-card.html:
+
+    media:
+      embed_provider: youtube
+      embed_id: _4o5JSOEA3s
+      width: 45%                     # optional; the player's column width
+                                     # (defaults to 35%)
+
+  With no media the abstract simply runs the full width. `figure_width:` at the
+  top level overrides `media.width` if both are given.
+
+  The title already links to links[0], so that first link is skipped in the list
+  below — same rule as item-card.html.
+{% endcomment %}
+
+{% assign item = include.item %}
+
+{% capture side_media %}
+  {% if item.media.embed_provider == "youtube" and item.media.embed_id %}
+    <div class="research-item__media">
+      <iframe
+        src="https://www.youtube.com/embed/{{ item.media.embed_id }}"
+        title="{{ item.title | escape }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% assign side_media = side_media | strip %}
+{% assign media_col = item.figure_width | default: item.media.width %}
+
+{% capture heading %}
+  <h3 class="research-item__title">
+    {% if item.links.size > 0 %}
+      <a href="{{ item.links[0].url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+    {% else %}
+      {{ item.title }}
+    {% endif %}
+  </h3>
+
+  <p class="research-item__meta">
+    {%- if item.date %}<time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d.%m.%Y" }}</time>{% endif -%}
+    {%- if item.venue %} | {{ item.venue }}{% endif -%}
+    {%- if item.location %}, {{ item.location }}{% endif -%}
+    {%- if item.item_type %} | {{ item.item_type | downcase }}{% endif -%}
+  </p>
+{% endcapture %}
+
+<article class="research-item">
+
+  {% comment %} With a player on the left the heading belongs in the right-hand
+  column, directly over the abstract; with no player it spans the full width. {% endcomment %}
+  {% if side_media == '' %}{{ heading }}{% endif %}
+
+  <div class="research-item__split{% if side_media == '' %} research-item__split--nofigure{% endif %}"{% if media_col %} style="--research-figure-col: {{ media_col }}"{% endif %}>
+    {% if side_media != '' %}
+      {% comment %} The same slot a figure uses on a publication entry. {% endcomment %}
+      <div class="research-item__figures">{{ side_media }}</div>
+    {% endif %}
+
+    <div class="research-item__text">
+      {% if side_media != '' %}{{ heading }}{% endif %}
+
+      {% if item.summary %}
+        <div class="research-item__summary">{{ item.summary | markdownify }}</div>
+      {% elsif item.excerpt %}
+        <div class="research-item__summary">{{ item.excerpt | markdownify }}</div>
+      {% endif %}
+
+      {% comment %} links[0] is already the title's href. {% endcomment %}
+      {% if item.links.size > 1 %}
+        <p class="research-item__links">
+          {% for link in item.links offset: 1 %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
+          {% endfor %}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+
+</article>
