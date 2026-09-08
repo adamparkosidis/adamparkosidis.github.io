@@ -2,6 +2,9 @@
 layout: archive
 title: "Research"
 permalink: /research/
+header:
+    hero_orbit: true
+    hero_tagline: "A donor star overflows its Roche lobe, feeding gas onto a compact object — the physics at the heart of my research."
 ---
 
 {% include base_path %}
