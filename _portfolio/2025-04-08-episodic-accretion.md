@@ -1,7 +1,9 @@
 ---
 title: "What is the impact of episodic accretion on brown dwarf formation?"
 collection: portfolio
-permalink: /portfolio/2025-04-08-episodic-accretion
+permalink: /exhibits/2025-04-08-episodic-accretion
+redirect_from:
+  - /portfolio/2025-04-08-episodic-accretion
 date: 2025-04-08
 item_type: "Research video"
 links:

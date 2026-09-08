@@ -18,8 +18,8 @@ main:
       - title: "Talks"
         url: /talks/
 
-  - title: "Portfolio"
-    url: /portfolio/
+      - title: "Exhibits"
+        url: /exhibits/
 
 
 
