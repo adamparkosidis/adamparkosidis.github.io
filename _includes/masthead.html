@@ -19,7 +19,8 @@
                      without href keeps the .visible-links a styling but never navigates. -->
                 <a role="button" tabindex="0" class="masthead__menu-toggle" aria-haspopup="true" aria-expanded="false">{{ link.title }}<span class="masthead__caret" aria-hidden="true"></span></a>
               {% else %}
-                <a href="{{ domain }}{{ link.url }}"{% if link.children %} aria-haspopup="true"{% endif %}>{{ link.title }}{% if link.children %}<span class="masthead__caret" aria-hidden="true"></span>{% endif %}</a>
+                <!-- Optional `target` in navigation.yml (e.g. "_blank") opens the link in a new tab. -->
+                <a href="{{ domain }}{{ link.url }}"{% if link.target %} target="{{ link.target }}" rel="noopener noreferrer"{% endif %}{% if link.children %} aria-haspopup="true"{% endif %}>{{ link.title }}{% if link.children %}<span class="masthead__caret" aria-hidden="true"></span>{% endif %}</a>
               {% endif %}
               {% if link.children %}
                 <ul class="masthead__submenu">

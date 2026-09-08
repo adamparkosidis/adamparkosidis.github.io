@@ -24,6 +24,12 @@ main:
       - title: "Exhibits"
         url: /exhibits/
 
+  # Direct link to the CV PDF in files/. `target` opens it in a new tab
+  # (see the `link.target` branch in _includes/masthead.html).
+  - title: "CV"
+    url: /files/CV_AP.pdf
+    target: "_blank"
+
 
 
     #   # - title: "Teaching"
