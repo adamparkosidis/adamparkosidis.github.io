@@ -2,6 +2,12 @@
    Research page — "Selected publications" / "Selected talks" entries
    ========================================================================== */
 
+/* The "Highlights" intro. Plain body text in .archive renders at 1em; keep it
+   at the same size as the entry summaries further down the page. */
+.research-intro {
+  font-size: $type-size-6;
+}
+
 .research-selection {
   margin: 0 0 0.5em;
 }
@@ -108,12 +114,11 @@
 .research-item__meta {
   margin: 0 0 0.5em;
   font-size: $type-size-6;
-  color: var(--global-text-color-light);
+  
 }
 
 .research-item__summary {
-  font-family: $serif;
-  font-size: $type-size-6;
+  font-size: $type-size-7;
 
   p {
     margin: 0 0 0.6em;
@@ -126,7 +131,7 @@
 
 .research-item__links {
   margin: 0.6em 0 0;
-  font-size: $type-size-6;
+  font-size: $type-size-7;
   color: var(--global-text-color-light);
 
   a {
@@ -136,5 +141,5 @@
 
 .research-selection__more {
   margin: 0.2em 0 0;
-  font-size: $type-size-6;
+  font-size: $type-size-7;
 }

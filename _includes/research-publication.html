@@ -70,15 +70,21 @@
 {% assign wide_figures = wide_figures | strip %}
 {% assign side_figures = side_figures | strip %}
 
-{% comment %} With a side figure and nothing above it, the heading belongs in the
+{% comment %}
+With a side figure and nothing above it, the heading belongs in the
 right-hand column so it sits directly over the summary. An entry that opens with
 a wide figure keeps its heading at the top, so the figure isn't the first thing
-on the page with no title over it. {% endcomment %}
+on the page with no title over it. 
+{% endcomment %}
+
 {% assign heading_in_column = false %}
 {% if side_figures != '' and wide_figures == '' %}{% assign heading_in_column = true %}{% endif %}
 
-{% comment %} Optional width for the figure column. Entry-level `figure_width`
-wins; otherwise the first side figure that sets `width`. {% endcomment %}
+{% comment %} 
+Optional width for the figure column. Entry-level `figure_width`
+wins; otherwise the first side figure that sets `width`. 
+{% endcomment %}
+
 {% assign figure_col = item.figure_width %}
 {% unless figure_col %}
   {% for f in item.figures %}
@@ -129,7 +135,7 @@ wins; otherwise the first side figure that sets `width`. {% endcomment %}
 
       {% if item.venue or item.links.size > 0 %}
         <p class="research-item__links">
-          {% if item.venue %}This work is published in ApJ, <i>{{ item.venue }}</i>{% if item.links.size > 0 %} &middot; {% endif %}{% endif %}
+          {% if item.venue %}This work is published in, <i>{{ item.venue }}</i>{% if item.links.size > 0 %} &middot; {% endif %}{% endif %}
           {% for link in item.links %}
             <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
           {% endfor %}
