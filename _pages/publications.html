@@ -1,20 +1,48 @@
 ---
 layout: archive
 title: "Publications"
+hide_title: true
 permalink: /publications/
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<div class="item-card-grid">
-{% for post in site.publications reversed %}
-  {% include item-card.html item=post %}
+{% comment %}
+  The sections, their headings and their order all come from
+  _data/publication_sections.yml; a publication chooses one with `section: <id>`
+  in its front matter and otherwise falls into the first section (the default is
+  set for the whole collection in _config.yml). The page's own title is hidden
+  (`hide_title` above) so these section headings read as the page's headings.
+
+  A section with nothing in it is skipped, and a publication whose `section:`
+  matches no id — a typo, say — falls back to the first section rather than
+  disappearing off the page.
+{% endcomment %}
+
+{% assign known_ids = site.data.publication_sections | map: "id" %}
+{% assign all_publications = site.publications | sort: "date" | reverse %}
+
+{% for section in site.data.publication_sections %}
+  {% capture cards %}
+    {% for post in all_publications %}
+      {% assign sec = post.section %}
+      {% unless known_ids contains sec %}{% assign sec = known_ids | first %}{% endunless %}
+      {% if sec == section.id %}
+        {% include item-card.html item=post %}
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign cards = cards | strip %}
+
+  {% if cards != '' %}
+    <section class="publication-section">
+      <h1 class="publication-section__title">{{ section.title }}</h1>
+      <div class="item-card-grid">{{ cards }}</div>
+    </section>
+  {% endif %}
 {% endfor %}
-</div>
 
-
-
+{% if site.author.googlescholar %}
+  <div class="wordwrap publications-note">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}

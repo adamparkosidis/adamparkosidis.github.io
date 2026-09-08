@@ -231,6 +231,9 @@ defaults:
       author_profile: false
       share: true
       comments: true
+      # Which heading on /publications/ this paper is listed under; ids come
+      # from _data/publication_sections.yml. Override per file as needed.
+      section: first
   # _talks
   - scope:
       path: ""

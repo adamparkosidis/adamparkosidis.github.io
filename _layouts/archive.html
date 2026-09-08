@@ -18,8 +18,8 @@ layout: default
   {% include sidebar.html %}
 
   <div class="archive{% unless page.author_profile or layout.author_profile or page.sidebar %} archive--full{% endunless %}">
-    {% unless page.header.overlay_color or page.header.overlay_image or page.header.hero_orbit %}
-      <h1 class="page__title">{{ page.title }}</h1>
+    {% unless page.header.overlay_color or page.header.overlay_image or page.header.hero_orbit or page.hide_title %}
+      <h1 class="page__title{% if page.title_center %} page__title--center{% endif %}">{{ page.title }}</h1>
     {% endunless %}
     {{ content }}
   </div>

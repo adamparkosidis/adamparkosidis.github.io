@@ -58,6 +58,13 @@
   & + .page__meta {
     margin-top: -0.5em;
   }
+
+  /* Opt in per page with `title_center: true` in front matter — see
+     _layouts/archive.html. Centres the title the way /research/ centres its
+     own in-content headings. */
+  &--center {
+    text-align: center;
+  }
 }
 
 .page__content {

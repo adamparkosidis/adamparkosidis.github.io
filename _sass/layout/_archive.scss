@@ -100,6 +100,26 @@
    Item card (unified publications/talks/portfolio rendering)
    ========================================================================== */
 
+/* Closing note under the last section's cards. */
+.publications-note {
+  margin-top: 2.5em;
+}
+
+/* /publications/ groups its cards under the headings defined in
+   _data/publication_sections.yml. The heading matches .page__title (see
+   _page.scss) so the first section reads as the page's own title. */
+.publication-section + .publication-section {
+  margin-top: 2.5em;
+}
+
+.publication-section__title {
+  margin: 0 0 0.8em;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
 .item-card-grid {
   display: grid;
   grid-template-columns: 1fr;

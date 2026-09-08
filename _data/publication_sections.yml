@@ -1,0 +1,15 @@
+# Sections on /publications/, in the order they appear on the page.
+#
+# A publication picks its section with `section: <id>` in its front matter.
+# Anything that doesn't set one gets the first section here, via the
+# `_publications` defaults in _config.yml — so only the exceptions need
+# annotating. A section with no publications in it is skipped.
+#
+# To add a section, add an entry here and set `section:` on the publications
+# that belong to it. To reorder the page, reorder these entries.
+
+- id: first
+  title: "First author publications"
+
+- id: coauthored
+  title: "Co-authored publications"
