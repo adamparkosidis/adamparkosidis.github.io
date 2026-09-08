@@ -8,9 +8,13 @@ $dark-primary-color         : mix(#000, $primary-color, 40%);
 $darker-primary-color       : mix(#000, $primary-color, 60%);
 $light-primary-color        : mix(#000, $primary-color, 50%);
 
-$background                 : #f6f1e7;
+$background                 : #ffffff;
 $background-light           : mix(#fff, $background, 20%);
 $background-lighter         : mix(#fff, $background, 90%);
+/* Second background of the alternating page bands (see layout/_section_band).
+   This pair — white and a light neutral grey — is the one used on
+   valeriakorol.com/research. */
+$background-alt             : #e7e7e7;
 $text                       : #211d15;
 $link                       : mix($text, $primary-color, 65%);
 $link-dark                  : mix(#000, $link, 25%);
@@ -40,8 +44,10 @@ $sidebar-screen-min-width   : 1024px;
 /* Dark theme for the site */
 :root {
     --global-base-color                 : #{$background};
+    --global-bg-alt-color               : #{$background-alt};
     --global-bg-color                   : #{$background};
     --global-footer-bg-color            : #{$footer};
+    --global-footer-text-color          : #{$background-lighter};
     --global-border-color               : #{$light-primary-color};
     --global-dark-border-color          : #{$background-light};
     --global-code-background-color      : #fafafa;

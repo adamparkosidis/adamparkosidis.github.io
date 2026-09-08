@@ -328,9 +328,21 @@
       }
     }
 
-    /* :focus-within opens the panel for keyboard users without any JS. */
+    /* Opened by pointer, or by assets/js/nav-dropdown.js on click/Enter. */
     .masthead__menu-item--has-children:hover > .masthead__submenu,
-    .masthead__menu-item--has-children:focus-within > .masthead__submenu {
+    .masthead__menu-item--has-children.is-open > .masthead__submenu {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transform: none;
+              transform: none;
+    }
+
+    /* Keeps the panel up while the keyboard walks through its own links. Scoped
+       to the submenu, not the parent <li>: focus on the toggle itself must not
+       re-open the panel the script just closed. Safe because a closed panel is
+       `visibility: hidden`, so nothing inside it can take focus in the first
+       place — the toggle script is what opens it for keyboard users. */
+    .masthead__submenu:focus-within {
       opacity: 1;
       visibility: visible;
       -webkit-transform: none;
@@ -354,11 +366,16 @@
 
   .visible-links {
     .masthead__menu-item--has-children:hover > a .masthead__caret,
-    .masthead__menu-item--has-children:focus-within > a .masthead__caret {
+    .masthead__menu-item--has-children.is-open > a .masthead__caret {
       /* flip to point up while the panel is open */
       -webkit-transform: rotate(-135deg);
               transform: rotate(-135deg);
       margin-top: 0.06em;
+    }
+
+    /* an <a> without href gets the default arrow cursor */
+    .masthead__menu-toggle {
+      cursor: pointer;
     }
   }
 

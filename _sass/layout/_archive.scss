@@ -100,17 +100,16 @@
    Item card (unified publications/talks/portfolio rendering)
    ========================================================================== */
 
-/* Closing note under the last section's cards. */
+/* Closing note under the last section's cards. It sits outside the bands, so
+   the last band's bottom padding is the gap above it. */
 .publications-note {
-  margin-top: 2.5em;
+  margin-top: 0;
 }
 
 /* /publications/ groups its cards under the headings defined in
    _data/publication_sections.yml. The heading matches .page__title (see
-   _page.scss) so the first section reads as the page's own title. */
-.publication-section + .publication-section {
-  margin-top: 2.5em;
-}
+   _page.scss) so the first section reads as the page's own title. Each section
+   is also a .section-band, which is where its spacing now comes from. */
 
 .publication-section__title {
   margin: 0 0 0.8em;

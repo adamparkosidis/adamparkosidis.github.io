@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Alternating section bands
+
+   Sections of a page take turns between two backgrounds: the page background
+   for the odd ones and --global-bg-alt-color for the even ones. Both colors
+   are defined per theme in _sass/theme/_air_{light,dark}.scss, so the pair
+   swaps with the theme on its own.
+
+   The first band deliberately keeps the page background: the masthead is
+   fixed and painted with --global-bg-color, so anything else would put a
+   seam right under it.
+
+   Marked up as <section class="section-band"> — see _pages/research.md,
+   _pages/publications.html and _pages/talks.html.
+   ========================================================================== */
+
+.section-band {
+  position: relative;
+  padding-top: 2.4em;
+  padding-bottom: 2.4em;
+
+  /* The band lives inside the centered content column, so its own box is far
+     narrower than the viewport. Paint the background on a pseudo-element that
+     reaches well past both edges instead: unlike the `50% - 50vw` margin
+     trick this doesn't assume the column is centered in the viewport, and it
+     leaves the band's own layout untouched. Body clips the overhang below. */
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    /* behind the section's content, in front of the page background */
+    z-index: -1;
+    background: var(--global-bg-color);
+  }
+
+  /* :nth-of-type, not :nth-child — a page may sit non-section elements (the
+     Google Scholar note on /publications/) between or after the bands. */
+  /* The fallback matters for a skin that doesn't define the alt color (only
+     theme/_air_* do): the bands then all read as the page background instead
+     of turning transparent. */
+  &:nth-of-type(even):before {
+    background: var(--global-bg-alt-color, var(--global-bg-color));
+  }
+}
+
+/* Contains the bands' horizontal overhang. It has to be set on <html> and not
+   only on <body>: with the overhang coming from a pseudo-element, body's
+   overflow does not stop the viewport from scrolling sideways. Nothing on the
+   site is position: sticky and wide content (tables, code blocks) scrolls
+   inside its own container, so clipping here costs nothing. */
+html,
+body {
+  overflow-x: hidden;
+}

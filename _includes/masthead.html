@@ -14,7 +14,13 @@
               {% assign domain = base_path %}
             {% endif %}
             <li class="masthead__menu-item{% if link.children %} masthead__menu-item--has-children{% endif %}">
-              <a href="{{ domain }}{{ link.url }}"{% if link.children %} aria-haspopup="true"{% endif %}>{{ link.title }}{% if link.children %}<span class="masthead__caret" aria-hidden="true"></span>{% endif %}</a>
+              {% if link.children and link.url == nil %}
+                <!-- No url: renders as a toggle that only opens the submenu. An <a>
+                     without href keeps the .visible-links a styling but never navigates. -->
+                <a role="button" tabindex="0" class="masthead__menu-toggle" aria-haspopup="true" aria-expanded="false">{{ link.title }}<span class="masthead__caret" aria-hidden="true"></span></a>
+              {% else %}
+                <a href="{{ domain }}{{ link.url }}"{% if link.children %} aria-haspopup="true"{% endif %}>{{ link.title }}{% if link.children %}<span class="masthead__caret" aria-hidden="true"></span>{% endif %}</a>
+              {% endif %}
               {% if link.children %}
                 <ul class="masthead__submenu">
                   {% for child in link.children %}
@@ -38,3 +44,5 @@
     </div>
   </div>
 </div>
+
+<script src="{{ base_path }}/assets/js/nav-dropdown.js" defer></script>

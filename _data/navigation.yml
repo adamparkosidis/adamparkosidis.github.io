@@ -9,9 +9,12 @@
 
 
 main:
+  # No `url` on this entry: it is a pure dropdown toggle, not a link.
   - title: "Research"
-    url: /research/
     children:
+      - title: "Highlights"
+        url: /research/
+
       - title: "Publications"
         url: /publications/
 

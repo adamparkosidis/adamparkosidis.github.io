@@ -5,7 +5,9 @@
 .page__footer {
   @include clearfix;
   background-color: var(--global-footer-bg-color);
-  color: var(--global-text-color-light);
+  /* Not --global-text-color-light: that is a mid tone of the primary color and
+     lands at ~2:1 on the footer's own background. */
+  color: var(--global-footer-text-color, var(--global-text-color-light));
 
   float: left;
   margin-left: 0;
@@ -49,48 +51,11 @@
     }
   }
 
-  .fas,
-  .fab,
-  .far,
-  .fal {
-    color: var(--global-text-color-light);
-  }
 }
 
-.page__footer-copyright {
+/* The whole footer is this one line (see _includes/footer.html). */
+.page__footer-contact {
   font-family: $global-font-family;
-  font-size: $type-size-7;
-}
-
-.page__footer-follow {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  li {
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
-    text-transform: uppercase;
-  }
-
-  li + li:before {
-    content: "";
-    padding-right: 5px;
-  }
-
-  a {
-    padding-right: 10px;
-    font-weight: bold;
-  }
-
-  .social-icons {
-    a {
-      white-space: nowrap;
-    }
-  }
+  font-size: $type-size-6;
+  text-align: center;
 }

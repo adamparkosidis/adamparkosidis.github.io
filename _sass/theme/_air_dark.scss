@@ -11,6 +11,10 @@ $light-primary-color        : mix(#000, $primary-color, 50%);
 $background                 : #1a1714;
 $background-light           : mix(#fff, $background, 20%);
 $background-lighter         : mix(#fff, $background, 90%);
+/* Second background of the alternating page bands (see layout/_section_band).
+   A few percent lighter than $background, same warm hue — enough to read as a
+   separate band, small enough that body text contrast is unchanged. */
+$background-alt             : #23201b;
 $text                       : #f2ede6;
 $link                       : mix($primary-color, $text, 40%);
 $link-dark                  : mix(#000, $link, 25%);
@@ -40,8 +44,10 @@ $sidebar-screen-min-width   : 1024px;
 /* Dark theme for the site */
 html[data-theme="dark"] {
     --global-base-color                 : #{$background};
+    --global-bg-alt-color               : #{$background-alt};
     --global-bg-color                   : #{$background};
     --global-footer-bg-color            : #{$footer};
+    --global-footer-text-color          : #{$text};
     --global-border-color               : #{$light-primary-color};
     --global-dark-border-color          : #{$background-light};
     --global-code-background-color      : #fafafa;

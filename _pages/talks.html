@@ -11,8 +11,15 @@ permalink: /talks/
 
 {% endif %}
 
-<div class="item-card-grid">
-{% for post in site.talks reversed %}
-  {% include item-card.html item=post %}
-{% endfor %}
-</div>
+{% comment %}
+  One band for now — the page has a single group of talks. Adding more
+  <section class="section-band"> blocks here makes them alternate between the
+  two page backgrounds automatically (see _sass/layout/_section_band.scss).
+{% endcomment %}
+<section class="section-band">
+  <div class="item-card-grid">
+  {% for post in site.talks reversed %}
+    {% include item-card.html item=post %}
+  {% endfor %}
+  </div>
+</section>
