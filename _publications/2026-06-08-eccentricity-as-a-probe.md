@@ -14,10 +14,13 @@ excerpt: 'arXiv'
 selected: true
 figure: evolution.png
 figure_wide: true
+figure_width: 100%
 figures:
   - src: sdBs_v2.png
     wide: false
-    width: 55%
+    width: 50%
+  # - src: period_eccentricity.png
+  #   wide: false
 summary: >
   The orbital evolution and final fate of interacting binaries are strongly influenced by mass transfer (MT). Classical binary-evolution theory generally assumes circular orbits during MT, yet nonzero eccentricities are commonly observed in wide post-interaction binaries, and their origin remains unclear. Eccentric MT offers a promising solution.
 

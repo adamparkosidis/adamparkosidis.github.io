@@ -7,7 +7,7 @@
       ...                            # falls back to `excerpt`
 
   Figures live in images/ and are referenced by bare filename. Each figure is
-  either WIDE — full width of the entry, stacked above the summary, for long
+  either WIDE — spanning the entry, stacked above the summary, for long
   horizontal figures — or not, in which case it goes in a column on the left with
   the summary running alongside it. Single figure:
 
@@ -29,27 +29,38 @@
   So an entry can mix both: a long figure across the top, a tall one beside the
   text.
 
-  The side figure's column defaults to 35% of the entry's width (see
-  _sass/layout/_research.scss). Give it an explicit width to balance the figure
-  against the text beside it — the right value depends on the figure's
-  proportions and how much you wrote, so tune it by eye:
+  `width:` tunes how much room a figure takes — any CSS length, by eye, since the
+  right value depends on the figure's proportions and how much you wrote. What it
+  sets depends on the slot (see _sass/layout/_research.scss):
 
       figures:
         - src: sdBs_v2.png
-          width: 55%               # any CSS length
+          width: 55%               # side: the column, default 35%
+        - src: evolution.png
+          wide: true
+          width: 70%               # wide: the figure itself, default 100%;
+                                   # anything less is centered in the entry
 
-  or, equivalently, `figure_width: 55%` at the top level, which takes precedence.
+  Side figures share one column, so the first `width:` among them sets it and the
+  rest are ignored — they stack at that column's width.
+
+  `figure_width:` at the top level sizes whichever slot the `figure:` above lands
+  in: the wide figure when `figure_wide: true`, otherwise the side column, where
+  it takes precedence over any per-figure `width:`. It never sizes both.
+
+  Both defaults apply above $medium only; on a narrow screen every figure runs
+  the full width.
 {% endcomment %}
 
 {% assign item = include.item %}
 
 {% capture wide_figures %}
   {% if item.figure and item.figure_wide %}
-    {% include research-figure.html src=item.figure alt=item.figure_alt caption=item.figure_caption %}
+    {% include research-figure.html src=item.figure alt=item.figure_alt caption=item.figure_caption wide=true width=item.figure_width %}
   {% endif %}
   {% for f in item.figures %}
     {% if f.wide %}
-      {% include research-figure.html src=f.src alt=f.alt caption=f.caption %}
+      {% include research-figure.html src=f.src alt=f.alt caption=f.caption wide=true width=f.width %}
     {% endif %}
   {% endfor %}
 {% endcapture %}
@@ -80,12 +91,15 @@ on the page with no title over it.
 {% assign heading_in_column = false %}
 {% if side_figures != '' and wide_figures == '' %}{% assign heading_in_column = true %}{% endif %}
 
-{% comment %} 
-Optional width for the figure column. Entry-level `figure_width`
-wins; otherwise the first side figure that sets `width`. 
+{% comment %}
+Optional width for the figure column. Entry-level `figure_width` sizes whichever
+slot the top-level `figure:` lands in, so it only reaches this column when that
+figure isn't wide — otherwise it belongs to the wide figure above and the column
+falls back to the first side figure that sets `width`.
 {% endcomment %}
 
-{% assign figure_col = item.figure_width %}
+{% assign figure_col = nil %}
+{% unless item.figure_wide %}{% assign figure_col = item.figure_width %}{% endunless %}
 {% unless figure_col %}
   {% for f in item.figures %}
     {% unless f.wide %}

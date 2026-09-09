@@ -74,6 +74,19 @@
   }
 }
 
+/* A wide figure spans the entry rather than a column, so it runs the full width
+   by default. --research-figure-width, set inline from front matter, narrows it
+   when a figure's proportions call for it — the auto margins then centre it in
+   the entry. Above $medium only; on a narrow screen the entry is already narrow,
+   so every wide figure stays full width. */
+.research-item__figure--wide {
+  @include breakpoint($medium) {
+    width: var(--research-figure-width, 100%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* An embedded recording sits in the same side slot a figure would. aspect-ratio
    keeps the player's height following from its column width, so the column
    width is all that needs setting. */
