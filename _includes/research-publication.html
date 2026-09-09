@@ -135,7 +135,7 @@ wins; otherwise the first side figure that sets `width`.
 
       {% if item.venue or item.links.size > 0 %}
         <p class="research-item__links">
-          {% if item.venue %}This work is published in <i>{{ item.venue }}</i>{% if item.links.size > 0 %} &middot; {% endif %}{% endif %}
+          {% if item.venue %}This work is accepted for publication in ApJ, <i>{{ item.venue }}</i>{% if item.links.size > 0 %} &middot; {% endif %}{% endif %}
           {% for link in item.links %}
             <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
           {% endfor %}
