@@ -56,7 +56,7 @@
     {%- if item.date %}<time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d.%m.%Y" }}</time>{% endif -%}
     {%- if item.venue %} | {{ item.venue }}{% endif -%}
     {%- if item.location %}, {{ item.location }}{% endif -%}
-    {%- if item.item_type %} | {{ item.item_type | downcase }}{% endif -%}
+    {%- if item.item_type %} | {{ item.item_type | capitalize }}{% endif -%}
   </p>
 {% endcapture %}
 
