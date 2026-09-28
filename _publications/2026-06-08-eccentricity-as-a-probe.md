@@ -3,14 +3,14 @@ title: "Reframing the wide eccentric binary problem: Eccentricity as a probe of 
 collection: publications
 category: manuscripts
 permalink: /publication/2026-06-08-eccentricity-as-a-probe.md
-date: 2026-06-08
-venue: 'arXiv'
-item_type: 'Preprint'
+date: 2026-09-25
+venue: 'The Astrophysical Journal'
+item_type: 'Journal article'
 links:
-  - label: 'arXiv'
-    url: 'https://arxiv.org/abs/2606.09464'
+  - label: 'Paper'
+    url: 'https://iopscience.iop.org/article/10.3847/1538-4357/ae9936'
 citation: 'Parkosidis A., Toonen S., Laplace E., Schaffenroth V.'
-excerpt: 'arXiv'
+excerpt: 'The Astrophysical Journal, ApJ 1009 178'
 selected: true
 figure: evolution.png
 figure_wide: true

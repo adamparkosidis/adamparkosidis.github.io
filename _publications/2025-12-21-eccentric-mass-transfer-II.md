@@ -3,7 +3,7 @@ title: "Rethinking mass transfer: A unified semianalytical framework for circula
 collection: publications
 category: manuscripts
 permalink: /publication/2025-12-21-eccentric-mass-transfer-II.md
-date: 2025-12-21
+date: 2026-02-02
 venue: 'Astronomy & Astrophysics'
 item_type: 'Journal article'
 links:
